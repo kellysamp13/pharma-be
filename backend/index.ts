@@ -38,7 +38,7 @@ app.get("/patients", (req: Request, res: Response) => {
   } else {
     res.json({
       patients: sortedPatients.slice(offset, offset+5),
-      nextOffset: sortedPatients.slice(offset, offset+5).length < 5 ? null : offset + 5,
+      nextOffset: sortedPatients.slice(0, offset+5).length >= sortedPatients.length ? null : offset + 5,
     });
   }
 });
@@ -153,7 +153,7 @@ app.get("/prescriptions", (req: Request, res: Response) => {
   } else {
     formattedJson = {
       prescriptions: sortedScripts.slice(offset, offset+5),
-      nextOffset: sortedScripts.slice(offset, offset+5).length < 5 ? null : offset + 5,
+      nextOffset: sortedScripts.slice(0, offset+5).length >= sortedScripts.length ? null : offset + 5,
     }
   }
 

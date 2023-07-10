@@ -6,12 +6,10 @@ const PatientSchema = z.object({
     email: z.string().email(),
     expiredScripts: z.array(PrescriptionSchema).optional(),
     firstName: z.string(),
-    // won't have an ID for POST, will for GET
     id: z.string().optional(),
     lastAppointment: z.string(),
     lastName: z.string(),
     phone: z.string(),
-    // a patient profile can exist with no prescriptions
     prescriptions: z.array(PrescriptionSchema).optional(),
 })
 
